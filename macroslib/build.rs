@@ -41,6 +41,10 @@ fn main() {
         let src_cnt_tail = std::fs::read_to_string(include_path)
             .unwrap_or_else(|err| panic!("Error during read {}: {}", include_path.display(), err));
         let mut src_cnt = r#"
+        #![allow(
+            clippy::suspicious_else_formatting
+        )]
+
         macro_rules! foreign_typemap {
             ($($tree:tt)*) => {};
         }
